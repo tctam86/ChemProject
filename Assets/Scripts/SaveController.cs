@@ -11,13 +11,12 @@ public class SaveController : MonoBehaviour
     {
         saveLocation = Path.Combine(Application.persistentDataPath, "DataSave.json");
 
-        // Check if we need to restore position after scene loads
+
         StartCoroutine(CheckForPositionRestore());
     }
 
     IEnumerator CheckForPositionRestore()
     {
-        // Wait one frame to ensure scene is fully loaded
         yield return null;
 
         if (PlayerPrefs.GetInt("ShouldRestorePosition", 0) == 1)
@@ -57,7 +56,6 @@ public class SaveController : MonoBehaviour
             currentSceneName = SceneManager.GetActiveScene().name,
         };
 
-        // Convert to JSON and save to file
         string jsonData = JsonUtility.ToJson(dataSave, true);
         File.WriteAllText(saveLocation, jsonData);
 
