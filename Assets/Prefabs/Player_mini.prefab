@@ -224,15 +224,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiniPlatformerController
   moveSpeed: 6
-  accel: 35
-  decel: 45
-  airControl: 0.6
   jumpForce: 12
-  coyoteTime: 0.1
-  bufferTime: 0.1
-  cutJumpShort: 1
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
   groundCheck: {fileID: 0}
-  groundRadius: 0.2
-  groundMask:
+  groundCheckRadius: 0.2
+  groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  coyoteTime: 0.1
+  jumpBufferTime: 0.2
