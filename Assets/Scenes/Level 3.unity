@@ -1066,7 +1066,7 @@ Transform:
   m_GameObject: {fileID: 452714863}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.1, y: -4.65, z: -10}
+  m_LocalPosition: {x: -3.12, y: -9.64, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1379,7 +1379,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.1, y: -4.65, z: -10}
+  m_LocalPosition: {x: -3.12, y: -9.64, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2780,6 +2780,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966732220}
   m_CullTransparentMesh: 1
+--- !u!1 &992384192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5364749765961979634, guid: cab818fabdcac0041a6558d2df5e6121, type: 3}
+  m_PrefabInstance: {fileID: 1781384446}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1199221682
 GameObject:
   m_ObjectHideFlags: 0
@@ -6346,11 +6351,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 229954246118267151, guid: cab818fabdcac0041a6558d2df5e6121, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.1
+      value: -3.12
       objectReference: {fileID: 0}
     - target: {fileID: 229954246118267151, guid: cab818fabdcac0041a6558d2df5e6121, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.65
+      value: -9.64
       objectReference: {fileID: 0}
     - target: {fileID: 229954246118267151, guid: cab818fabdcac0041a6558d2df5e6121, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6403,13 +6408,62 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5364749765961979634, guid: cab818fabdcac0041a6558d2df5e6121, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1781384459}
   m_SourcePrefab: {fileID: 100100000, guid: cab818fabdcac0041a6558d2df5e6121, type: 3}
 --- !u!4 &1781384452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 229954246118267151, guid: cab818fabdcac0041a6558d2df5e6121, type: 3}
   m_PrefabInstance: {fileID: 1781384446}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &1781384459
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992384192}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1.4375}
+    newSize: {x: 1, y: 1.4375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1.4375}
+  m_EdgeRadius: 0
 --- !u!1 &1938646076
 GameObject:
   m_ObjectHideFlags: 0

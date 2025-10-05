@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Animations;
 
 public class MiniPlatformerController : MonoBehaviour
 {
     Vector2 moveInput;
-    Rigidbody2D myRigidbody2D;
+    Rigidbody2D rb;
     [SerializeField] float moveSpeed = 5f;
+    Animator anim;
 
     [Header("Jump Physics")]
     [SerializeField] private float jumpForce = 12f;
@@ -30,9 +32,12 @@ public class MiniPlatformerController : MonoBehaviour
     private float jumpBufferCounter;
     private bool jumpHeld;
 
+
+
     void Start()
     {
-        myRigidbody2D = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -78,19 +83,29 @@ public class MiniPlatformerController : MonoBehaviour
         }
 
         ApplyBetterJump();
-
+        FLipSprite();
         wasGrounded = isGrounded;
+    }
+
+
+    void FLipSprite()
+    {   //Access to Transform
+        bool hasHorizontalSpeed = Mathf.Abs(rb.linearVelocity.x) > Mathf.Epsilon;
+        if (hasHorizontalSpeed)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(rb.linearVelocity.x), 1f);
+        }
     }
 
     void ApplyBetterJump()
     {
-        if (myRigidbody2D.linearVelocity.y < 0)
+        if (rb.linearVelocity.y < 0)
         {
-            myRigidbody2D.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
-        else if (myRigidbody2D.linearVelocity.y > 0 && !jumpHeld)
+        else if (rb.linearVelocity.y > 0 && !jumpHeld)
         {
-            myRigidbody2D.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
     }
 
@@ -109,16 +124,18 @@ public class MiniPlatformerController : MonoBehaviour
 
     void PerformJump()
     {
-        Vector2 velocity = myRigidbody2D.linearVelocity;
+        Vector2 velocity = rb.linearVelocity;
         velocity.y = jumpForce;
-        myRigidbody2D.linearVelocity = velocity;
+        rb.linearVelocity = velocity;
         jumpPressed = false;
     }
 
     void Run()
     {
-        Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, myRigidbody2D.linearVelocity.y);
-        myRigidbody2D.linearVelocity = playerVelocity;
+        Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = playerVelocity;
+        bool hasHorizontalSpeed = Mathf.Abs(rb.linearVelocity.x) > Mathf.Epsilon;
+        anim.SetBool("isWalking", hasHorizontalSpeed);
     }
 
 }
