@@ -42,9 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Ground
-    uniqueID: 3988764905
-    locked: 0
   - name: WalkInfront
     uniqueID: 2067924133
     locked: 0
