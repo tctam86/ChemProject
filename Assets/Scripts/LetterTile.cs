@@ -54,4 +54,9 @@ public class LetterTile : MonoBehaviour
     {
         return letter;
     }
+
+    public void SetLetter(string newLetter)
+    {
+        letter = newLetter;
+    }
 }

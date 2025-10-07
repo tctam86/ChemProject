@@ -24,20 +24,18 @@ public class PuzzleSpawner : MonoBehaviour
             answerLetters.Add(c);
         }
 
-        // Create a list of all letters to spawn (answer letters + random letters)
         List<char> lettersToSpawn = new List<char>(answerLetters);
 
-        // Add random letters to fill out the tiles (assuming 9 tiles total)
+
         while (lettersToSpawn.Count < spawnPositions.Length)
         {
             char randomLetter = (char)('A' + Random.Range(0, 26));
             lettersToSpawn.Add(randomLetter);
         }
 
-        // Shuffle the letters
         ShuffleLetters(lettersToSpawn);
 
-        // Spawn tiles at positions
+
         for (int i = 0; i < spawnPositions.Length && i < lettersToSpawn.Count; i++)
         {
             GameObject tile = Instantiate(letterTilePrefab, spawnPositions[i].position, Quaternion.identity);
@@ -51,7 +49,7 @@ public class PuzzleSpawner : MonoBehaviour
 
     private void ClearExistingTiles()
     {
-        LetterTile[] existingTiles = FindObjectsOfType<LetterTile>();
+        LetterTile[] existingTiles = FindObjectsByType<LetterTile>(FindObjectsSortMode.None);
         foreach (LetterTile tile in existingTiles)
         {
             Destroy(tile.gameObject);
