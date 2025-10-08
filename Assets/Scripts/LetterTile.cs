@@ -3,6 +3,8 @@ using UnityEngine;
 public class LetterTile : MonoBehaviour
 {
     [SerializeField] private string letter;
+    [SerializeField] private TMPro.TMP_Text letterLabel;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private bool isCollected = false;
 
     private Animator animator;
@@ -55,8 +57,21 @@ public class LetterTile : MonoBehaviour
         return letter;
     }
 
+
     public void SetLetter(string newLetter)
     {
         letter = newLetter;
+        if (letterLabel != null)
+        {
+            letterLabel.text = newLetter;
+        }
+    }
+
+    public void SetSprite(Sprite newSprite)
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = newSprite;
+        }
     }
 }
