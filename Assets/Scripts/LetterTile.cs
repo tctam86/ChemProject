@@ -9,23 +9,20 @@ public class LetterTile : MonoBehaviour
 
     private Animator animator;
     private Collider2D tileCollider;
+    private Rigidbody2D rb;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         tileCollider = GetComponent<Collider2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (collision.gameObject.CompareTag("Player") && !isCollected)
+        if (collision.contacts[0].normal.y < -0.5f)
         {
-
-            if (collision.contacts[0].normal.y < -0.5f)
-            {
-                CollectLetter();
-            }
+            CollectLetter();
         }
     }
 
@@ -33,30 +30,35 @@ public class LetterTile : MonoBehaviour
     {
         isCollected = true;
 
-        // Disable collider so player can't collect it again
+        Debug.Log($"🎯 Collected letter: {letter}");
+
+
         if (tileCollider != null)
         {
             tileCollider.enabled = false;
         }
 
-        // Trigger collection animation
+
+        if (rb != null)
+        {
+            rb.linearVelocity = new Vector2(0, 8f);
+            rb.gravityScale = 2f;
+        }
+
+
         if (animator != null)
         {
             animator.SetTrigger("Collect");
         }
 
-        // Notify the puzzle manager about the collected letter
+
         PuzzleManager.Instance?.OnLetterCollected(letter);
 
-        // Destroy the tile after animation
-        Destroy(gameObject, 0.5f);
+
+        Destroy(gameObject, 1.5f);
     }
 
-    public string GetLetter()
-    {
-        return letter;
-    }
-
+    public string GetLetter() => letter;
 
     public void SetLetter(string newLetter)
     {

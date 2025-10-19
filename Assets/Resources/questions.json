@@ -1,0 +1,43 @@
+{
+  "easyQuestions": [
+    {
+      "questionText": "H2O is the chemical formula for?",
+      "answer": "WATER",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "NaCl is commonly known as?",
+      "answer": "SALT",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "O2 is the symbol for?",
+      "answer": "OXYGEN",
+      "difficulty": "Easy"
+    }
+  ],
+  "normalQuestions": [
+    {
+      "questionText": "A substance that speeds up a reaction?",
+      "answer": "CATALYST",
+      "difficulty": "Normal"
+    },
+    {
+      "questionText": "The smallest unit of an element?",
+      "answer": "ATOM",
+      "difficulty": "Normal"
+    }
+  ],
+  "hardQuestions": [
+    {
+      "questionText": "Study of carbon compounds?",
+      "answer": "ORGANIC",
+      "difficulty": "Hard"
+    },
+    {
+      "questionText": "Atoms with different neutron numbers?",
+      "answer": "ISOTOPES",
+      "difficulty": "Hard"
+    }
+  ]
+}
