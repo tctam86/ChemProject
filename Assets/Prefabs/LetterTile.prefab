@@ -183,6 +183,7 @@ MonoBehaviour:
   letterLabel: {fileID: 6641360723519992031}
   spriteRenderer: {fileID: 8170081399115363228}
   isCollected: 0
+  disappearDelay: 0.1
 --- !u!1 &6560933947103607510
 GameObject:
   m_ObjectHideFlags: 0

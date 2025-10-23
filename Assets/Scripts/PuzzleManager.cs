@@ -19,6 +19,30 @@ public class PuzzleManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    //Logic để check collect đúng letter không 
+    public bool TryCollectLetter(string letter)
+    {
+        if (string.IsNullOrEmpty(correctAnswer))
+        {
+            Debug.Log("No correct answer set.");
+            return false;
+        }
+        int index = collectedLetters.Count;
+
+        if (index >= correctAnswer.Length)
+        {
+            Debug.Log("Puzzle already solved or input overflow.");
+            return false;
+        }
+        char expected = char.ToUpperInvariant(correctAnswer[index]);
+        char picked = char.ToUpperInvariant(string.IsNullOrEmpty(letter) ? '\0' : letter[0]);
+        if (picked == expected)
+        {
+            Debug.Log($"✅ Correct letter: {letter}");
+            return true;
+        }
+        return false;
+    }
 
     public void OnLetterCollected(string letter)
     {

@@ -6,6 +6,7 @@ public class LetterTile : MonoBehaviour
     [SerializeField] private TMPro.TMP_Text letterLabel;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private bool isCollected = false;
+    [SerializeField] private float disappearDelay = 1.5f;
 
     private Animator animator;
     private Collider2D tileCollider;
@@ -20,9 +21,16 @@ public class LetterTile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.contacts[0].normal.y < -0.5f)
+        if (collision.contacts[0].normal.y > 0.5f && !isCollected)
         {
-            CollectLetter();
+            if (PuzzleManager.Instance != null && PuzzleManager.Instance.TryCollectLetter(letter))
+            {
+                CollectLetter();
+            }
+            else
+            {
+                Debug.Log($"❌ Wrong letter: {letter}");
+            }
         }
     }
 
@@ -55,7 +63,7 @@ public class LetterTile : MonoBehaviour
         PuzzleManager.Instance?.OnLetterCollected(letter);
 
 
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, disappearDelay);
     }
 
     public string GetLetter() => letter;
