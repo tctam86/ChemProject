@@ -7,6 +7,8 @@ public class PuzzleManager : MonoBehaviour
 
     [SerializeField] private string correctAnswer;
     private List<string> collectedLetters = new List<string>();
+    [SerializeField]
+    private QuestionOverlayController questionOverlayController;
 
     void Awake()
     {
@@ -56,7 +58,9 @@ public class PuzzleManager : MonoBehaviour
         if (currentWord.Equals(correctAnswer, System.StringComparison.OrdinalIgnoreCase))
         {
             Debug.Log("Puzzle Solved!");
-            // Trigger success events, e.g., open gate
+            questionOverlayController?.ShowCompletion();
+
+
         }
         else if (collectedLetters.Count >= correctAnswer.Length)
         {

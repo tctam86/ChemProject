@@ -25,7 +25,7 @@ public class QuestionBankManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private TileSpawner tileSpawner;
     [SerializeField] private PuzzleManager puzzleManager;
-    [SerializeField] private QuestionUIDisplay questionUIDisplay;
+    [SerializeField] private QuestionOverlayController questionOverlayController;
 
     private Question currentQuestion;
 
@@ -121,7 +121,7 @@ public class QuestionBankManager : MonoBehaviour
     private void SetupPuzzle()
     {
 
-        questionUIDisplay?.DisplayQuestion(currentQuestion);
+        questionOverlayController?.ShowQuestion(currentQuestion);
 
         puzzleManager?.SetCorrectAnswer(currentQuestion.answer);
 
