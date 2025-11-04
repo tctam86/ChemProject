@@ -20,6 +20,7 @@ public class QuestionOverlayController : MonoBehaviour
     [SerializeField] private Animator animator;
 
 
+
     private void Start()
     {
         HideImmediate();
@@ -73,6 +74,7 @@ public class QuestionOverlayController : MonoBehaviour
         if (animator != null)
         {
             animator.SetTrigger("ShowQuestion");
+
             Debug.Log("Animator trigger ShowQuestion set");
         }
         else
