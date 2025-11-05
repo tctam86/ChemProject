@@ -2,19 +2,17 @@ using UnityEngine;
 
 public class PuzzleBootstrapper : MonoBehaviour
 {
-    public PuzzleSpawner puzzleSpawner;
-
-    public string answer;
+    public DifficultyLevel difficulty = DifficultyLevel.Easy;
 
     void Start()
     {
-        if (puzzleSpawner != null)
+        if (QuestionBankManager.Instance != null)
         {
-            puzzleSpawner.SpawnPuzzle(answer);
+            QuestionBankManager.Instance.StartPuzzle(difficulty);
         }
         else
         {
-            Debug.LogError("PuzzleSpawner is not assigned in the PuzzleBootstrapper.");
+            Debug.LogError("QuestionBankManager.Instance is null. Make sure a QuestionBankManager exists in the scene.");
         }
     }
 }
