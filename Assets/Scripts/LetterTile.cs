@@ -23,12 +23,16 @@ public class LetterTile : MonoBehaviour
     {
         if (collision.contacts[0].normal.y > 0.5f && !isCollected)
         {
+            var sfx = collision.transform.GetComponent<PlayerSoundEffects>();
+
             if (PuzzleManager.Instance != null && PuzzleManager.Instance.TryCollectLetter(letter))
             {
+                sfx?.PlayCorrectLetter();
                 CollectLetter();
             }
             else
             {
+                sfx?.PlayWrongLetter();
                 Debug.Log($"❌ Wrong letter: {letter}");
             }
         }

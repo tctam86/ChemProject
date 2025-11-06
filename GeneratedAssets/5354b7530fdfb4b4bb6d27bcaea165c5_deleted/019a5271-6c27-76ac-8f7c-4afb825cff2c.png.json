@@ -1,0 +1,20 @@
+{
+    "asset": "5354b7530fdfb4b4bb6d27bcaea165c5",
+    "fileName": "019a5271-6c27-76ac-8f7c-4afb825cff2c.png",
+    "prompt": "screen flicker resembling real-life light",
+    "negativePrompt": "",
+    "model": "5b5b2af1-6ea4-4266-b087-cc9f3bf4f450",
+    "modelName": "Flux.1 Dev",
+    "customSeed": -1,
+    "w3CTraceId": "4d4b71fe14d88ea36c13aba17aedb1b9",
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0
+}

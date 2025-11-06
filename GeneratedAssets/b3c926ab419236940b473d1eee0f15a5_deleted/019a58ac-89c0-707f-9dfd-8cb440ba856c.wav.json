@@ -1,0 +1,13 @@
+{
+    "asset": "b3c926ab419236940b473d1eee0f15a5",
+    "fileName": "019a58ac-89c0-707f-9dfd-8cb440ba856c.wav",
+    "prompt": "impact tingting",
+    "negativePrompt": "",
+    "model": "ee31b223-3fe1-4ae6-bf54-d8a80bb4b0e1",
+    "modelName": "Text to Sound",
+    "customSeed": -1,
+    "w3CTraceId": "8c140ac459e26ad20e0e6d7ec924269f",
+    "duration": 1.0,
+    "autoTrim": true,
+    "hasReference": false
+}
