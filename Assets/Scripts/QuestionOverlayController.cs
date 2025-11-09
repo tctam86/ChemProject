@@ -86,7 +86,18 @@ public class QuestionOverlayController : MonoBehaviour
     public void ShowCompletion()
     {
         if (choicesContainer != null) choicesContainer.SetActive(false);
-        if (completionGroup != null) completionGroup.SetActive(true);
+        if (completionGroup != null)
+        {
+            completionGroup.SetActive(true);
+            if (congratsText != null)
+            {
+                congratsText.text = "Congratulations! You completed the puzzle!";
+            }
+            else
+            {
+                Debug.LogError("CongratsText is not assigned in the Inspector!");
+            }
+        }
 
         if (animator != null) animator.SetTrigger("ShowComplete");
     }
