@@ -44,6 +44,7 @@ public class QuestionOverlayController : MonoBehaviour
 
         if (questionText != null)
         {
+            questionText.gameObject.SetActive(true);
             questionText.text = question.questionText;
             Debug.Log("Question text set to: " + question.questionText);
         }
@@ -54,6 +55,7 @@ public class QuestionOverlayController : MonoBehaviour
 
         if (difficultyText != null)
         {
+            difficultyText.gameObject.SetActive(true);
             difficultyText.text = $"Difficulty: {question.difficulty}";
             Debug.Log("Difficulty text set to: " + question.difficulty);
         }
@@ -85,6 +87,9 @@ public class QuestionOverlayController : MonoBehaviour
 
     public void ShowCompletion()
     {
+
+        if (choicesContainer != null) choicesContainer.SetActive(false);
+        if (difficultyText != null) difficultyText.gameObject.SetActive(false);
         if (choicesContainer != null) choicesContainer.SetActive(false);
         if (completionGroup != null)
         {
