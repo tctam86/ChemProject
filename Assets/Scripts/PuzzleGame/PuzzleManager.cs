@@ -34,9 +34,9 @@ public class PuzzleManager : MonoBehaviour
             if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
-                if (QuestionUIDisplay.Instance != null)
+                if (QuestionOverlayController.Instance != null)
                 {
-                    QuestionUIDisplay.Instance.UpdateTimerUI(timeRemaining);
+                    QuestionOverlayController.Instance.UpdateTimerUI(timeRemaining);
                 }
             }
             else
@@ -107,11 +107,17 @@ public class PuzzleManager : MonoBehaviour
     }
     public void OnTimeUp()
     {
-        Debug.Log("Time's up! Puzzle failed.");
-        collectedLetters.Clear();
-        if (questionOverlayController != null)
+        Debug.Log("Time's up!");
+
+        isTimerRunning = false;
+
+        if (GameOverUI.Instance != null)
         {
-            //TODO: Show time up UI
+            GameOverUI.Instance.ShowGameOver();
+        }
+        else
+        {
+            Debug.LogError("GameOverUI.Instance is not found in the scene!");
         }
     }
     public void StopTimer()

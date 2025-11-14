@@ -4,12 +4,15 @@ using UnityEngine.UI;
 
 public class QuestionOverlayController : MonoBehaviour
 {
+    public static QuestionOverlayController Instance { get; private set; }
+
     [Header("Overlay References")]
     [SerializeField] private CanvasGroup overlayGroup;
     [SerializeField] private GameObject panelFrame;
     [SerializeField] private TMP_Text questionText;
     [SerializeField] private TMP_Text difficultyText;
     [SerializeField] private GameObject choicesContainer;
+    [SerializeField] private TMP_Text timerText;
 
     [Header("Completion UI")]
     [SerializeField] private GameObject completionGroup;
@@ -21,8 +24,17 @@ public class QuestionOverlayController : MonoBehaviour
 
 
 
-    private void Start()
+    private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
         HideImmediate();
         if (continueButton != null)
         {
@@ -131,5 +143,15 @@ public class QuestionOverlayController : MonoBehaviour
         }
         if (completionGroup != null) completionGroup.SetActive(false);
     }
+
+    public void UpdateTimerUI(float time)
+    {
+        if (timerText == null) return;
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time % 60);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.color = (time <= 10f) ? Color.red : Color.white;
+    }
+
 }
 
