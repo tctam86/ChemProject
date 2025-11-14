@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Animations;
+using System.Numerics;
+using Vector2 = UnityEngine.Vector2;
 
 public class MiniPlatformerController : MonoBehaviour
 {
@@ -10,6 +12,10 @@ public class MiniPlatformerController : MonoBehaviour
     [SerializeField] float jumpSpeed = 10f;
     Animator anim;
     CapsuleCollider2D myCapsuleCollider;
+    Vector2 voiceMoveInput;
+    float voiceInputStopTime;
+    [Tooltip("Duration for which voice input affects movement after receiving a command")]
+    [SerializeField] float voiceMoveDuration = 0.5f;
 
     void Start()
     {
@@ -21,6 +27,10 @@ public class MiniPlatformerController : MonoBehaviour
 
     void Update()
     {
+        if (Time.time > voiceInputStopTime)
+        {
+            voiceMoveInput = Vector2.Lerp(voiceMoveInput, Vector2.zero, Time.deltaTime * 10f);
+        }
         Run();
         FLipSprite();
 
@@ -44,7 +54,6 @@ public class MiniPlatformerController : MonoBehaviour
 
     void OnJump(InputValue inputValue)
     {
-        //Check whether player touch the layers or not
         if (!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             return;
@@ -58,11 +67,41 @@ public class MiniPlatformerController : MonoBehaviour
 
     void Run()
     {
-        Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+        float horizontalInput = Mathf.Abs(moveInput.x) > Mathf.Epsilon ? moveInput.x : voiceMoveInput.x;
+
+        Vector2 playerVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
         rb.linearVelocity = playerVelocity;
+
         bool hasHorizontalSpeed = Mathf.Abs(rb.linearVelocity.x) > Mathf.Epsilon;
         anim.SetBool("isWalking", hasHorizontalSpeed);
     }
 
+    public void ExecuteVoiceCommand(string command)
+    {
+        switch (command)
+        {
+            case "MOVE_LEFT":
+                voiceMoveInput = new Vector2(-1, 0);
+
+                voiceInputStopTime = Time.time + voiceMoveDuration;
+                break;
+
+            case "MOVE_RIGHT":
+                voiceMoveInput = new Vector2(1, 0);
+                voiceInputStopTime = Time.time + voiceMoveDuration;
+                break;
+
+            case "JUMP":
+
+                if (myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+                {
+                    rb.linearVelocity += new Vector2(0f, jumpSpeed);
+                }
+                break;
+        }
+    }
+
 }
+
+
 

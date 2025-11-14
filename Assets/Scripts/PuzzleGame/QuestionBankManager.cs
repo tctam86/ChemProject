@@ -122,11 +122,13 @@ public class QuestionBankManager : MonoBehaviour
     {
 
         questionOverlayController?.ShowQuestion(currentQuestion);
-
         puzzleManager?.SetCorrectAnswer(currentQuestion.answer);
-
-
         tileSpawner?.SpawnLetterTiles(currentQuestion.answer);
+        if (puzzleManager != null && currentQuestion != null)
+        {
+            float timeLimit = currentQuestion.GetTimeLimit();
+            puzzleManager.StartTimer(timeLimit);
+        }
     }
 
     public Question GetCurrentQuestion() => currentQuestion;

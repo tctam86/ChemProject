@@ -10,6 +10,10 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField]
     private QuestionOverlayController questionOverlayController;
 
+    private float timeLimit;
+    private float timeRemaining;
+    private bool isTimerRunning = false;
+
     void Awake()
     {
         if (Instance == null)
@@ -21,7 +25,31 @@ public class PuzzleManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    //Logic để check collect đúng letter không 
+
+
+    void Update()
+    {
+        if (isTimerRunning)
+        {
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+                if (QuestionUIDisplay.Instance != null)
+                {
+                    QuestionUIDisplay.Instance.UpdateTimerUI(timeRemaining);
+                }
+            }
+            else
+            {
+                timeRemaining = 0;
+                isTimerRunning = false;
+                OnTimeUp();
+            }
+
+        }
+    }
+
+    // Logic để check collect đúng letter không 
     public bool TryCollectLetter(string letter)
     {
         if (string.IsNullOrEmpty(correctAnswer))
@@ -58,6 +86,7 @@ public class PuzzleManager : MonoBehaviour
         if (currentWord.Equals(correctAnswer, System.StringComparison.OrdinalIgnoreCase))
         {
             Debug.Log("Puzzle Solved!");
+            StopTimer();
             questionOverlayController?.ShowCompletion();
 
 
@@ -70,6 +99,25 @@ public class PuzzleManager : MonoBehaviour
         }
     }
 
+    public void StartTimer(float duration)
+    {
+        timeLimit = duration;
+        timeRemaining = duration;
+        isTimerRunning = true;
+    }
+    public void OnTimeUp()
+    {
+        Debug.Log("Time's up! Puzzle failed.");
+        collectedLetters.Clear();
+        if (questionOverlayController != null)
+        {
+            //TODO: Show time up UI
+        }
+    }
+    public void StopTimer()
+    {
+        isTimerRunning = false;
+    }
     public void SetCorrectAnswer(string answer)
     {
         correctAnswer = answer;

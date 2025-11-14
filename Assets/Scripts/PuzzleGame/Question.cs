@@ -33,4 +33,15 @@ public class Question
             _ => DifficultyLevel.Easy
         };
     }
+
+    public float GetTimeLimit()
+    {
+        return GetDifficultyLevel() switch
+        {
+            DifficultyLevel.Easy => 90f,
+            DifficultyLevel.Normal => 60f,
+            DifficultyLevel.Hard => 30f,
+            _ => 60f
+        };
+    }
 }
