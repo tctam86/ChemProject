@@ -40,7 +40,7 @@ public class Question
         {
             DifficultyLevel.Easy => 90f,
             DifficultyLevel.Normal => 60f,
-            DifficultyLevel.Hard => 30f,
+            DifficultyLevel.Hard => 60f,
             _ => 60f
         };
     }

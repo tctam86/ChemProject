@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e55b11cf181e64160875d05c09e86105, type: 3}
+  m_Name: NPCDialog
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  npcName: NPC
+  npcPortrait: {fileID: 0}
+  dialogueLines:
+  - "Ah, welcome, young explorer! I\u2019ve been expecting you."
+  - "You\u2019ve just stepped into my laboratory"
+  - "You must be eager to learn, yes? Perfect! I\u2019ve prepared a little challenge
+    for you."
+  - "Think of it as\u2026 a gentle warm-up for your brilliant mind."
+  - Exactly! A puzzle game designed to boost your understanding of basic chemistry.
+  - "Don\u2019t worry \u2014 I\u2019ll guide you through the rules."
+  autoProgressLines: 010101010101
+  autoProgressLinesDelay: 1
+  typingSpeed: 0.05
+  voiceSound: {fileID: 0}
+  voicePitch: 1

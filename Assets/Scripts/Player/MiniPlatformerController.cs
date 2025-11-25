@@ -47,18 +47,18 @@ public class MiniPlatformerController : MonoBehaviour
     }
 
 
-    void OnMove(InputValue inputValue)
+    public void OnMove(InputAction.CallbackContext context)
     {
-        moveInput = inputValue.Get<Vector2>();
+        moveInput = context.ReadValue<Vector2>();
     }
 
-    void OnJump(InputValue inputValue)
+    public void OnJump(InputAction.CallbackContext context)
     {
         if (!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             return;
         }
-        if (inputValue.isPressed)
+        if (context.performed)
         {
             rb.linearVelocity += new Vector2(0f, jumpSpeed);
         }
