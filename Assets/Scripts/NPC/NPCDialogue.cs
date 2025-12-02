@@ -12,4 +12,7 @@ public class NPCDialogue : ScriptableObject
     public AudioClip voiceSound;
     public float voicePitch = 1f;
 
+    [Header("Post-Dialogue Actions")]
+    public bool triggerMoveOnEnd = false;
+    public bool triggerGameStartOnEnd = false;
 }

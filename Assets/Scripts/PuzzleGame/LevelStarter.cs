@@ -6,12 +6,10 @@ public class LevelStarter : MonoBehaviour
     [SerializeField] private float startDelay = 1f;
 
 
-    void Start()
-    {
-        Invoke(nameof(StartPuzzle), startDelay);
-    }
+    // Removed automatic start from Start() method
+    // The game will now be started manually by calling StartPuzzle()
 
-    void StartPuzzle()
+    public void StartPuzzle()
     {
         if (QuestionBankManager.Instance != null)
         {

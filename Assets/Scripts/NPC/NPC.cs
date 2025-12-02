@@ -12,9 +12,18 @@ public class NPC : MonoBehaviour, IInteractable
 
     public Image portraitImage;
 
-    private int dialogueIndex;
+    [Header("Post-Dialogue Movement")]
+    public Transform waypointToMoveTo;
+    public NPCDialogue dialogueAfterMove;
 
+    private int dialogueIndex;
     private bool isTyping, isDialogActive;
+    private WaypointMover mover;
+
+    void Awake()
+    {
+        mover = GetComponent<WaypointMover>();
+    }
 
     public bool CanInteract()
     {
@@ -34,8 +43,6 @@ public class NPC : MonoBehaviour, IInteractable
         {
             StartDialogue();
         }
-
-
     }
 
     void StartDialogue()
@@ -95,5 +102,28 @@ public class NPC : MonoBehaviour, IInteractable
         isDialogActive = false;
         dialogueText.SetText("");
         dialoguePanel.SetActive(false);
+
+        if (dialogueData.triggerMoveOnEnd && mover != null && waypointToMoveTo != null)
+        {
+            mover.MoveToWaypoint(waypointToMoveTo, dialogueAfterMove);
+        }
+
+        if (dialogueData.triggerGameStartOnEnd)
+        {
+            StartPuzzleFromDialogue();
+        }
+    }
+
+    void StartPuzzleFromDialogue()
+    {
+        LevelStarter levelStarter = FindObjectOfType<LevelStarter>();
+        if (levelStarter != null)
+        {
+            levelStarter.StartPuzzle();
+        }
+        else
+        {
+            Debug.LogError("LevelStarter component not found in the scene, but dialogue tried to start the puzzle.");
+        }
     }
 }

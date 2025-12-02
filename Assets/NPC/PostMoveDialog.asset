@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e55b11cf181e64160875d05c09e86105, type: 3}
-  m_Name: NPCDialog
+  m_Name: PostMoveDialog
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   npcName: NPC
   npcPortrait: {fileID: 0}
   dialogueLines:
-  - "Ah, welcome, young genius! I\u2019ve been expecting you."
-  - "You\u2019ve just stepped into my laboratory"
-  - "You must be eager to learn, yes? Perfect! I\u2019ve prepared a little challenge
-    for you."
-  - "Think of it as\u2026 a gentle warm-up for your brilliant mind."
-  - Exactly! A puzzle game designed to boost your understanding of basic chemistry.
-  - "Don\u2019t worry \u2014 I\u2019ll guide you through the rules."
+  - If you're ready, young genius!
+  - I'll give you some instructions to play the puzzle.
+  - "You'll use arrow key (\u2191\u2193\u2190\u2192) to control your movement."
+  - And space key for jumping.
+  - Then, letter boxes will appear, and your task is to arrange these characters.
+  - By hiiting the boxes
   autoProgressLines: 010101010101
   autoProgressLinesDelay: 1
   typingSpeed: 0.05
   voiceSound: {fileID: 0}
   voicePitch: 1
-  triggerMoveOnEnd: 1
+  triggerMoveOnEnd: 0
+  triggerGameStartOnEnd: 1
