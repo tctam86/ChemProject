@@ -92,6 +92,11 @@ public class PuzzleManager : MonoBehaviour
     public void OnLetterCollected(string letter)
     {
         collectedLetters.Add(letter);
+        string currentWord = string.Join("", collectedLetters);
+        if (QuestionOverlayController.Instance != null)
+        {
+            QuestionOverlayController.Instance.UpdateArrangedWordUI(currentWord);
+        }
         CheckWordCompletion();
     }
 
@@ -208,6 +213,10 @@ public class PuzzleManager : MonoBehaviour
     {
         correctAnswer = answer;
         collectedLetters.Clear();
+        if (QuestionOverlayController.Instance != null)
+        {
+            QuestionOverlayController.Instance.UpdateArrangedWordUI("");
+        }
     }
 
     private void AddScoreForCorrectAnswer()

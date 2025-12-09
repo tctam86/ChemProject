@@ -14,6 +14,576 @@
       "questionText": "O2 is the symbol for?",
       "answer": "OXYGEN",
       "difficulty": "Easy"
+    },
+    {
+      "questionText": "Au is the symbol for?",
+      "answer": "GOLD",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ag is the symbol for?",
+      "answer": "SILVER",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Fe is the symbol for?",
+      "answer": "IRON",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Cu is the symbol for?",
+      "answer": "COPPER",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Pb is the symbol for?",
+      "answer": "LEAD",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Hg is the symbol for?",
+      "answer": "MERCURY",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Sn is the symbol for?",
+      "answer": "TIN",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Al is the symbol for?",
+      "answer": "ALUMINUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Zn is the symbol for?",
+      "answer": "ZINC",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ni is the symbol for?",
+      "answer": "NICKEL",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Pt is the symbol for?",
+      "answer": "PLATINUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "K is the symbol for?",
+      "answer": "POTASSIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Na is the symbol for?",
+      "answer": "SODIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ca is the symbol for?",
+      "answer": "CALCIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Mg is the symbol for?",
+      "answer": "MAGNESIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Mn is the symbol for?",
+      "answer": "MANGANESE",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Co is the symbol for?",
+      "answer": "COBALT",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Cr is the symbol for?",
+      "answer": "CHROMIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Cd is the symbol for?",
+      "answer": "CADMIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Li is the symbol for?",
+      "answer": "LITHIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Sr is the symbol for?",
+      "answer": "STRONTIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ba is the symbol for?",
+      "answer": "BARIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ra is the symbol for?",
+      "answer": "RADIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ti is the symbol for?",
+      "answer": "TITANIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "V is the symbol for?",
+      "answer": "VANADIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Sc is the symbol for?",
+      "answer": "SCANDIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Y is the symbol for?",
+      "answer": "YTTRIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Zr is the symbol for?",
+      "answer": "ZIRCONIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Nb is the symbol for?",
+      "answer": "NIOBIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Mo is the symbol for?",
+      "answer": "MOLYBDENUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Tc is the symbol for?",
+      "answer": "TECHNETIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ru is the symbol for?",
+      "answer": "RUTHENIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Rh is the symbol for?",
+      "answer": "RHODIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Pd is the symbol for?",
+      "answer": "PALLADIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "In is the symbol for?",
+      "answer": "INDIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Sb is the symbol for?",
+      "answer": "ANTIMONY",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Te is the symbol for?",
+      "answer": "TELLURIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "I is the symbol for?",
+      "answer": "IODINE",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Xe is the symbol for?",
+      "answer": "XENON",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Cs is the symbol for?",
+      "answer": "CESIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Be is the symbol for?",
+      "answer": "BERYLLIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "B is the symbol for?",
+      "answer": "BORON",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "C is the symbol for?",
+      "answer": "CARBON",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "N is the symbol for?",
+      "answer": "NITROGEN",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "F is the symbol for?",
+      "answer": "FLUORINE",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ne is the symbol for?",
+      "answer": "NEON",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Si is the symbol for?",
+      "answer": "SILICON",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "P is the symbol for?",
+      "answer": "PHOSPHORUS",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "S is the symbol for?",
+      "answer": "SULFUR",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Cl is the symbol for?",
+      "answer": "CHLORINE",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ar is the symbol for?",
+      "answer": "ARGON",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ge is the symbol for?",
+      "answer": "GERMANIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "As is the symbol for?",
+      "answer": "ARSENIC",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Se is the symbol for?",
+      "answer": "SELENIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Br is the symbol for?",
+      "answer": "BROMINE",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Kr is the symbol for?",
+      "answer": "KRYPTON",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Rb is the symbol for?",
+      "answer": "RUBIDIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "He is the symbol for?",
+      "answer": "HELIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "La is the symbol for?",
+      "answer": "LANTHANUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ce is the symbol for?",
+      "answer": "CERIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Pr is the symbol for?",
+      "answer": "PRASEODYMIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Nd is the symbol for?",
+      "answer": "NEODYMIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Pm is the symbol for?",
+      "answer": "PROMETHIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Sm is the symbol for?",
+      "answer": "SAMARIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Eu is the symbol for?",
+      "answer": "EUROPIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Gd is the symbol for?",
+      "answer": "GADOLINIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Tb is the symbol for?",
+      "answer": "TERBIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Dy is the symbol for?",
+      "answer": "DYSPROSIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ho is the symbol for?",
+      "answer": "HOLMIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Er is the symbol for?",
+      "answer": "ERBIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Tm is the symbol for?",
+      "answer": "THULIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Yb is the symbol for?",
+      "answer": "YTTERBIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Lu is the symbol for?",
+      "answer": "LUTETIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Hf is the symbol for?",
+      "answer": "HAFNIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ta is the symbol for?",
+      "answer": "TANTALUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "W is the symbol for?",
+      "answer": "TUNGSTEN",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Re is the symbol for?",
+      "answer": "RHENIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Os is the symbol for?",
+      "answer": "OSMIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ir is the symbol for?",
+      "answer": "IRIDIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Bi is the symbol for?",
+      "answer": "BISMUTH",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Po is the symbol for?",
+      "answer": "POLONIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "At is the symbol for?",
+      "answer": "ASTATINE",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Rn is the symbol for?",
+      "answer": "RADON",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Fr is the symbol for?",
+      "answer": "FRANCIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ac is the symbol for?",
+      "answer": "ACTINIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Th is the symbol for?",
+      "answer": "THORIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Pa is the symbol for?",
+      "answer": "PROTACTINIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "U is the symbol for?",
+      "answer": "URANIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Np is the symbol for?",
+      "answer": "NEPTUNIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Pu is the symbol for?",
+      "answer": "PLUTONIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Am is the symbol for?",
+      "answer": "AMERICIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Cm is the symbol for?",
+      "answer": "CURIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Bk is the symbol for?",
+      "answer": "BERKELIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Cf is the symbol for?",
+      "answer": "CALIFORNIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Es is the symbol for?",
+      "answer": "EINSTEINIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Fm is the symbol for?",
+      "answer": "FERMIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Md is the symbol for?",
+      "answer": "MENDELEVIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "No is the symbol for?",
+      "answer": "NOBELIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Lr is the symbol for?",
+      "answer": "LAWRENCIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Rf is the symbol for?",
+      "answer": "RUTHERFORDIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Db is the symbol for?",
+      "answer": "DUBNIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Sg is the symbol for?",
+      "answer": "SEABORGIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Bh is the symbol for?",
+      "answer": "BOHRIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Hs is the symbol for?",
+      "answer": "HASSIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Mt is the symbol for?",
+      "answer": "MEITNERIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ds is the symbol for?",
+      "answer": "DARMSTADTIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Rg is the symbol for?",
+      "answer": "ROENTGENIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Cn is the symbol for?",
+      "answer": "COPERNICIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Fl is the symbol for?",
+      "answer": "FLEROVIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Lv is the symbol for?",
+      "answer": "LIVERMORIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ts is the symbol for?",
+      "answer": "TENNESSINE",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Og is the symbol for?",
+      "answer": "OGANESSON",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Uue is the symbol for?",
+      "answer": "UNUNENNIUM",
+      "difficulty": "Easy"
+    },
+    {
+      "questionText": "Ubn is the symbol for?",
+      "answer": "UNBINILIUM",
+      "difficulty": "Easy"
     }
   ],
   "normalQuestions": [

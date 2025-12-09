@@ -14,6 +14,7 @@ public class QuestionOverlayController : MonoBehaviour
     [SerializeField] private GameObject choicesContainer;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text arrangedWordText;
 
     [Header("Completion UI")]
     [SerializeField] private GameObject completionGroup;
@@ -169,6 +170,17 @@ public class QuestionOverlayController : MonoBehaviour
         }
 
         scoreText.text = $"Score: {score}";
+    }
+
+    public void UpdateArrangedWordUI(string arrangedWord)
+    {
+        if (arrangedWordText == null)
+        {
+            Debug.LogWarning("Arranged word text is not assigned in the inspector!");
+            return;
+        }
+
+        arrangedWordText.text = arrangedWord;
     }
 
 }
