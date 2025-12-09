@@ -124,6 +124,8 @@ public class QuestionBankManager : MonoBehaviour
         questionOverlayController?.ShowQuestion(currentQuestion);
         puzzleManager?.SetCorrectAnswer(currentQuestion.answer);
         tileSpawner?.SpawnLetterTiles(currentQuestion.answer);
+
+        // Start the timer
         if (puzzleManager != null && currentQuestion != null)
         {
             float timeLimit = currentQuestion.GetTimeLimit();

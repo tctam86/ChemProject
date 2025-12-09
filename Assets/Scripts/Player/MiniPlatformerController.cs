@@ -27,6 +27,12 @@ public class MiniPlatformerController : MonoBehaviour
 
     void Update()
     {
+        if (GameStateManager.IsPaused)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         if (Time.time > voiceInputStopTime)
         {
             voiceMoveInput = Vector2.Lerp(voiceMoveInput, Vector2.zero, Time.deltaTime * 10f);

@@ -7,6 +7,7 @@ public class GameOverUI : MonoBehaviour
     public static GameOverUI Instance { get; private set; }
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TMP_Text motivationalText;
+    [SerializeField] private TMP_Text finalScoreText;
 
     private void Awake()
     {
@@ -34,6 +35,22 @@ public class GameOverUI : MonoBehaviour
             gameOverPanel.SetActive(true);
         if (motivationalText != null)
             motivationalText.text = MotivationalBank.Instance.GetRandomMessage();
+
+        // Display final score
+        if (finalScoreText != null && PuzzleManager.Instance != null)
+        {
+            int finalScore = PuzzleManager.Instance.GetCurrentScore();
+            finalScoreText.text = $"Final Score: {finalScore:N0}";
+        }
+        else if (finalScoreText == null)
+        {
+            Debug.LogWarning("Final Score Text is not assigned in the inspector!");
+        }
+        else if (PuzzleManager.Instance == null)
+        {
+            Debug.LogWarning("PuzzleManager.Instance is null!");
+        }
+
         Time.timeScale = 0f;
     }
 

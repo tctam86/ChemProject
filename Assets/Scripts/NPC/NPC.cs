@@ -19,6 +19,7 @@ public class NPC : MonoBehaviour, IInteractable
     private int dialogueIndex;
     private bool isTyping, isDialogActive;
     private WaypointMover mover;
+    private bool isPermanentlyDisabled = false;
 
     void Awake()
     {
@@ -27,7 +28,7 @@ public class NPC : MonoBehaviour, IInteractable
 
     public bool CanInteract()
     {
-        return !isDialogActive;
+        return !isDialogActive && !isPermanentlyDisabled;
     }
 
     public void Interact()
@@ -84,14 +85,14 @@ public class NPC : MonoBehaviour, IInteractable
         foreach (char letter in dialogueData.dialogueLines[dialogueIndex])
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(dialogueData.typingSpeed);
+            yield return new WaitForSecondsRealtime(dialogueData.typingSpeed);
         }
 
         isTyping = false;
 
         if (dialogueData.autoProgressLines.Length > dialogueIndex && dialogueData.autoProgressLines[dialogueIndex])
         {
-            yield return new WaitForSeconds(dialogueData.autoProgressLinesDelay);
+            yield return new WaitForSecondsRealtime(dialogueData.autoProgressLinesDelay);
             NextLine();
         }
     }
@@ -103,6 +104,7 @@ public class NPC : MonoBehaviour, IInteractable
         dialogueText.SetText("");
         dialoguePanel.SetActive(false);
 
+
         if (dialogueData.triggerMoveOnEnd && mover != null && waypointToMoveTo != null)
         {
             mover.MoveToWaypoint(waypointToMoveTo, dialogueAfterMove);
@@ -111,6 +113,11 @@ public class NPC : MonoBehaviour, IInteractable
         if (dialogueData.triggerGameStartOnEnd)
         {
             StartPuzzleFromDialogue();
+        }
+
+        if (dialogueData.disableInteractionOnEnd)
+        {
+            isPermanentlyDisabled = true;
         }
     }
 

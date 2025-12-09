@@ -13,6 +13,7 @@ public class QuestionOverlayController : MonoBehaviour
     [SerializeField] private TMP_Text difficultyText;
     [SerializeField] private GameObject choicesContainer;
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private TMP_Text scoreText;
 
     [Header("Completion UI")]
     [SerializeField] private GameObject completionGroup;
@@ -95,6 +96,12 @@ public class QuestionOverlayController : MonoBehaviour
         {
             Debug.LogWarning("Animator is null");
         }
+
+        // Force update score UI when showing a new question
+        if (PuzzleManager.Instance != null)
+        {
+            UpdateScoreUI(PuzzleManager.Instance.GetCurrentScore());
+        }
     }
 
     public void ShowCompletion()
@@ -151,6 +158,17 @@ public class QuestionOverlayController : MonoBehaviour
         int seconds = Mathf.FloorToInt(time % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         timerText.color = (time <= 10f) ? Color.red : Color.white;
+    }
+
+    public void UpdateScoreUI(int score)
+    {
+        if (scoreText == null)
+        {
+            Debug.LogWarning("Score text is not assigned in the inspector!");
+            return;
+        }
+
+        scoreText.text = $"Score: {score}";
     }
 
 }

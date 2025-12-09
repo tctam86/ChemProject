@@ -15,4 +15,5 @@ public class NPCDialogue : ScriptableObject
     [Header("Post-Dialogue Actions")]
     public bool triggerMoveOnEnd = false;
     public bool triggerGameStartOnEnd = false;
+    public bool disableInteractionOnEnd = false;
 }

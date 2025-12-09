@@ -28,3 +28,4 @@ MonoBehaviour:
   voicePitch: 1
   triggerMoveOnEnd: 0
   triggerGameStartOnEnd: 1
+  disableInteractionOnEnd: 1
