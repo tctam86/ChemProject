@@ -11,7 +11,6 @@ public class TileSpawner : MonoBehaviour
 
     void Start()
     {
-        // Collect all map tiles
         foreach (Transform child in mapTileParent)
         {
             mapTiles.Add(child);

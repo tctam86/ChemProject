@@ -1,8 +1,6 @@
+// File: Assets/Scripts/Player/MiniPlatformerController.cs
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Animations;
-using System.Numerics;
-using Vector2 = UnityEngine.Vector2;
 
 public class MiniPlatformerController : MonoBehaviour
 {
@@ -12,9 +10,10 @@ public class MiniPlatformerController : MonoBehaviour
     [SerializeField] float jumpSpeed = 10f;
     Animator anim;
     CapsuleCollider2D myCapsuleCollider;
-    Vector2 voiceMoveInput;
-    float voiceInputStopTime;
-    [Tooltip("Duration for which voice input affects movement after receiving a command")]
+
+    private Vector2 voiceMoveInput;
+    private float voiceInputStopTime;
+    [Tooltip("Time (seconds) for which the voice command to move is in effect")]
     [SerializeField] float voiceMoveDuration = 0.5f;
 
     void Start()
@@ -24,32 +23,16 @@ public class MiniPlatformerController : MonoBehaviour
         myCapsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
-
     void Update()
     {
-        if (GameStateManager.IsPaused)
-        {
-            rb.linearVelocity = Vector2.zero;
-            return;
-        }
 
         if (Time.time > voiceInputStopTime)
         {
             voiceMoveInput = Vector2.Lerp(voiceMoveInput, Vector2.zero, Time.deltaTime * 10f);
         }
+
         Run();
-        FLipSprite();
-
-    }
-
-
-    void FLipSprite()
-    {
-        bool hasHorizontalSpeed = Mathf.Abs(rb.linearVelocity.x) > Mathf.Epsilon;
-        if (hasHorizontalSpeed)
-        {
-            transform.localScale = new Vector2(Mathf.Sign(rb.linearVelocity.x), 1f);
-        }
+        FlipSprite();
     }
 
 
@@ -57,6 +40,7 @@ public class MiniPlatformerController : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>();
     }
+
 
     public void OnJump(InputAction.CallbackContext context)
     {
@@ -70,7 +54,6 @@ public class MiniPlatformerController : MonoBehaviour
         }
     }
 
-
     void Run()
     {
         float horizontalInput = Mathf.Abs(moveInput.x) > Mathf.Epsilon ? moveInput.x : voiceMoveInput.x;
@@ -82,13 +65,21 @@ public class MiniPlatformerController : MonoBehaviour
         anim.SetBool("isWalking", hasHorizontalSpeed);
     }
 
+    void FlipSprite()
+    {
+        bool hasHorizontalSpeed = Mathf.Abs(rb.linearVelocity.x) > Mathf.Epsilon;
+        if (hasHorizontalSpeed)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(rb.linearVelocity.x), 1f);
+        }
+    }
+
     public void ExecuteVoiceCommand(string command)
     {
         switch (command)
         {
             case "MOVE_LEFT":
                 voiceMoveInput = new Vector2(-1, 0);
-
                 voiceInputStopTime = Time.time + voiceMoveDuration;
                 break;
 
@@ -98,16 +89,15 @@ public class MiniPlatformerController : MonoBehaviour
                 break;
 
             case "JUMP":
-
                 if (myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
                 {
                     rb.linearVelocity += new Vector2(0f, jumpSpeed);
                 }
                 break;
+
+            case "STOP_MOVE":
+                voiceMoveInput = Vector2.zero;
+                break;
         }
     }
-
 }
-
-
-

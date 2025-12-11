@@ -14,7 +14,7 @@ public class QuestionBankManager : MonoBehaviour
     public static QuestionBankManager Instance { get; private set; }
 
     [Header("JSON Settings")]
-    [SerializeField] private string jsonFileName = "questions"; // File in Resources folder
+    [SerializeField] private string jsonFileName = "questions"; 
     [SerializeField] private bool loadFromJSON = true;
 
     [Header("Question Bank")]
@@ -125,7 +125,6 @@ public class QuestionBankManager : MonoBehaviour
         puzzleManager?.SetCorrectAnswer(currentQuestion.answer);
         tileSpawner?.SpawnLetterTiles(currentQuestion.answer);
 
-        // Start the timer
         if (puzzleManager != null && currentQuestion != null)
         {
             float timeLimit = currentQuestion.GetTimeLimit();
