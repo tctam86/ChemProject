@@ -25,6 +25,8 @@ MonoBehaviour:
   autoProgressLines: 010101010101
   autoProgressLinesDelay: 1
   typingSpeed: 0.05
-  voiceSound: {fileID: 0}
-  voicePitch: 1
+  voiceSound: {fileID: 8300000, guid: c72dca16d0ffde14383068cf472c0401, type: 3}
+  voicePitch: 1.34
   triggerMoveOnEnd: 1
+  triggerGameStartOnEnd: 0
+  disableInteractionOnEnd: 0

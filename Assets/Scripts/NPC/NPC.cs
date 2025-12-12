@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 public class NPC : MonoBehaviour, IInteractable
 {
     public NPCDialogue dialogueData;
@@ -11,6 +12,10 @@ public class NPC : MonoBehaviour, IInteractable
     public TMP_Text dialogueText, nameText;
 
     public Image portraitImage;
+
+    [Header("Audio")]
+    public AudioClip typingSound;
+    private AudioSource audioSource;
 
     [Header("Post-Dialogue Movement")]
     public Transform waypointToMoveTo;
@@ -24,6 +29,7 @@ public class NPC : MonoBehaviour, IInteractable
     void Awake()
     {
         mover = GetComponent<WaypointMover>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public bool CanInteract()
@@ -63,6 +69,10 @@ public class NPC : MonoBehaviour, IInteractable
     {
         if (isTyping)
         {
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
             StopAllCoroutines();
             dialogueText.SetText(dialogueData.dialogueLines[dialogueIndex]);
             isTyping = false;
@@ -82,12 +92,23 @@ public class NPC : MonoBehaviour, IInteractable
         isTyping = true;
         dialogueText.SetText("");
 
+        if (typingSound != null)
+        {
+            audioSource.clip = typingSound;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
+
         foreach (char letter in dialogueData.dialogueLines[dialogueIndex])
         {
             dialogueText.text += letter;
             yield return new WaitForSecondsRealtime(dialogueData.typingSpeed);
         }
 
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
         isTyping = false;
 
         if (dialogueData.autoProgressLines.Length > dialogueIndex && dialogueData.autoProgressLines[dialogueIndex])
@@ -99,6 +120,10 @@ public class NPC : MonoBehaviour, IInteractable
 
     public void EndDialogue()
     {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
         StopAllCoroutines();
         isDialogActive = false;
         dialogueText.SetText("");

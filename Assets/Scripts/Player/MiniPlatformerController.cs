@@ -12,9 +12,6 @@ public class MiniPlatformerController : MonoBehaviour
     CapsuleCollider2D myCapsuleCollider;
 
     private Vector2 voiceMoveInput;
-    private float voiceInputStopTime;
-    [Tooltip("Time (seconds) for which the voice command to move is in effect")]
-    [SerializeField] float voiceMoveDuration = 0.5f;
 
     void Start()
     {
@@ -26,10 +23,6 @@ public class MiniPlatformerController : MonoBehaviour
     void Update()
     {
 
-        if (Time.time > voiceInputStopTime)
-        {
-            voiceMoveInput = Vector2.Lerp(voiceMoveInput, Vector2.zero, Time.deltaTime * 10f);
-        }
 
         Run();
         FlipSprite();
@@ -80,12 +73,10 @@ public class MiniPlatformerController : MonoBehaviour
         {
             case "MOVE_LEFT":
                 voiceMoveInput = new Vector2(-1, 0);
-                voiceInputStopTime = Time.time + voiceMoveDuration;
                 break;
 
             case "MOVE_RIGHT":
                 voiceMoveInput = new Vector2(1, 0);
-                voiceInputStopTime = Time.time + voiceMoveDuration;
                 break;
 
             case "JUMP":

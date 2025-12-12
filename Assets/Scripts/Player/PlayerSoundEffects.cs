@@ -44,7 +44,7 @@ public class PlayerSoundEffects : MonoBehaviour
     void Update()
     {
         bool isWalking = animator.GetBool("isWalking");
-        float speed = rb.linearVelocity.magnitude; // khớp với code hiện có
+        float speed = rb.linearVelocity.magnitude;
         if (isWalking && speed > minMoveSpeed && footstepSound)
         {
             float speedFactor = Mathf.Clamp(speed, 0.5f, 4f);
@@ -79,8 +79,7 @@ public class PlayerSoundEffects : MonoBehaviour
     public void PlayCorrectLetter()
     {
         if (!correctLetterSound) return;
-        audioSource.PlayOneShot(correctLetterSound, letterVolume);
-
+        AudioSource.PlayClipAtPoint(correctLetterSound, transform.position, letterVolume);
     }
 
     public void PlayWrongLetter()
