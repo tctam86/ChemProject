@@ -11,16 +11,12 @@ public class PuzzleSpawner : MonoBehaviour
 
     public void SpawnPuzzle(string answer)
     {
-        // Clear any existing tiles
         ClearExistingTiles();
 
-        // Log the puzzle question to the console
         Debug.Log("Puzzle Question: " + answer);
 
-        // Set the correct answer in the puzzle manager
         puzzleManager.SetCorrectAnswer(answer);
 
-        // Convert answer to character list
         answerLetters.Clear();
         foreach (char c in answer.ToUpper())
         {

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e55b11cf181e64160875d05c09e86105, type: 3}
   m_Name: PostMoveDialog
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
-  npcName: NPC
-  npcPortrait: {fileID: 0}
+  npcName: Dr.Chemistry
+  npcPortrait: {fileID: 6120914730915384989, guid: 8cd260a1a83a3c840ad250ccf549e2cc, type: 3}
   dialogueLines:
   - If you're ready, young genius!
   - I'll give you some instructions to play the puzzle.
@@ -24,7 +24,7 @@ MonoBehaviour:
   autoProgressLines: 010101010101
   autoProgressLinesDelay: 1
   typingSpeed: 0.05
-  voiceSound: {fileID: 0}
+  voiceSound: {fileID: 8300000, guid: c72dca16d0ffde14383068cf472c0401, type: 3}
   voicePitch: 1
   triggerMoveOnEnd: 0
   triggerGameStartOnEnd: 1

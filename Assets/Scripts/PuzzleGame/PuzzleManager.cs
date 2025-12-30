@@ -32,7 +32,6 @@ public class PuzzleManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            // Reset score when starting a new game session
             ResetScore();
         }
         else
@@ -64,7 +63,6 @@ public class PuzzleManager : MonoBehaviour
         }
     }
 
-    // Logic để check collect đúng letter không 
     public bool TryCollectLetter(string letter)
     {
         if (string.IsNullOrEmpty(correctAnswer))
@@ -125,13 +123,13 @@ public class PuzzleManager : MonoBehaviour
                     else
                     {
                         Debug.LogError("Cannot start new puzzle: current question is null.");
-                        questionOverlayController?.ShowCompletion(); // Fallback to completion screen
+                        questionOverlayController?.ShowCompletion(); 
                     }
                 }
                 else
                 {
                     Debug.LogError("QuestionBankManager.Instance is not found!");
-                    questionOverlayController?.ShowCompletion(); // Fallback to completion screen
+                    questionOverlayController?.ShowCompletion(); 
                 }
             }
             else
@@ -143,7 +141,6 @@ public class PuzzleManager : MonoBehaviour
         else if (collectedLetters.Count >= correctAnswer.Length)
         {
             Debug.Log("Incorrect word. Try again.");
-            // Handle incorrect attempt, e.g., reset letters
             collectedLetters.Clear();
         }
     }

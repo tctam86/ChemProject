@@ -539,51 +539,6 @@
       "questionText": "Mt is the symbol for?",
       "answer": "MEITNERIUM",
       "difficulty": "Easy"
-    },
-    {
-      "questionText": "Ds is the symbol for?",
-      "answer": "DARMSTADTIUM",
-      "difficulty": "Easy"
-    },
-    {
-      "questionText": "Rg is the symbol for?",
-      "answer": "ROENTGENIUM",
-      "difficulty": "Easy"
-    },
-    {
-      "questionText": "Cn is the symbol for?",
-      "answer": "COPERNICIUM",
-      "difficulty": "Easy"
-    },
-    {
-      "questionText": "Fl is the symbol for?",
-      "answer": "FLEROVIUM",
-      "difficulty": "Easy"
-    },
-    {
-      "questionText": "Lv is the symbol for?",
-      "answer": "LIVERMORIUM",
-      "difficulty": "Easy"
-    },
-    {
-      "questionText": "Ts is the symbol for?",
-      "answer": "TENNESSINE",
-      "difficulty": "Easy"
-    },
-    {
-      "questionText": "Og is the symbol for?",
-      "answer": "OGANESSON",
-      "difficulty": "Easy"
-    },
-    {
-      "questionText": "Uue is the symbol for?",
-      "answer": "UNUNENNIUM",
-      "difficulty": "Easy"
-    },
-    {
-      "questionText": "Ubn is the symbol for?",
-      "answer": "UNBINILIUM",
-      "difficulty": "Easy"
     }
   ],
   "normalQuestions": [

@@ -90,13 +90,13 @@ public class VoskWebSocketClient : MonoBehaviour
             VoiceCommand cmd = JsonUtility.FromJson<VoiceCommand>(jsonMessage);
             if (cmd != null && cmd.type == "command" && playerController != null)
             {
-                Debug.Log($"Nhận được lệnh: {cmd.data}");
+                Debug.Log($"Receive: {cmd.data}");
                 playerController.ExecuteVoiceCommand(cmd.data);
             }
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"Không thể parse lệnh JSON '{jsonMessage}': {e.Message}");
+            Debug.LogError($"Cannot parse  JSON command '{jsonMessage}': {e.Message}");
         }
     }
 
