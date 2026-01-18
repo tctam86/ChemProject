@@ -12,25 +12,28 @@ public class VoiceCommand
 }
 public class VoskWebSocketClient : MonoBehaviour
 {
-    [Tooltip("Drag Character's GameObject here")]
+    [Tooltip("Character")]
     public MiniPlatformerController playerController;
     [Tooltip("IP address of Python server")]
     public string serverAddress = "localhost";
     [Tooltip("Port of Python server")]
     public int serverPort = 8765;
+    [Tooltip("Key for push-to-talk")]
+    public KeyCode pushToTalkKey = KeyCode.V;
 
     private WebSocket websocket;
     private readonly Queue<string> commandQueue = new Queue<string>();
+    private bool isPushToTalkActive = false;
 
 
     async void Start()
     {
         if (playerController == null)
         {
-            playerController = FindObjectOfType<MiniPlatformerController>();
+            playerController = FindFirstObjectByType<MiniPlatformerController>();
             if (playerController == null)
             {
-                Debug.LogError("LỖI: Không tìm thấy script 'MiniPlatformerController' trong Scene!");
+                Debug.LogError("Error: Cannot find the script 'MiniPlatformerController!'");
                 this.enabled = false;
                 return;
             }
@@ -72,6 +75,16 @@ public class VoskWebSocketClient : MonoBehaviour
         }
 #endif
 
+        // Handle push-to-talk
+        if (Input.GetKeyDown(pushToTalkKey))
+        {
+            StartPushToTalk();
+        }
+        else if (Input.GetKeyUp(pushToTalkKey))
+        {
+            StopPushToTalk();
+        }
+
         while (commandQueue.Count > 0)
         {
             string message;
@@ -83,6 +96,29 @@ public class VoskWebSocketClient : MonoBehaviour
         }
     }
 
+    private void StartPushToTalk()
+    {
+        isPushToTalkActive = true;
+        SendControlMessage("start_listening");
+        Debug.Log("Push-to-talk: Start listening");
+    }
+
+    private void StopPushToTalk()
+    {
+        isPushToTalkActive = false;
+        SendControlMessage("stop_listening");
+        Debug.Log("Push-to-talk: Stop listening");
+    }
+
+    private async void SendControlMessage(string action)
+    {
+        if (websocket != null && websocket.State == WebSocketState.Open)
+        {
+            string jsonMessage = JsonUtility.ToJson(new VoiceCommand { type = "control", data = action });
+            await websocket.SendText(jsonMessage);
+        }
+    }
+
     private void ProcessCommand(string jsonMessage)
     {
         try
@@ -90,8 +126,15 @@ public class VoskWebSocketClient : MonoBehaviour
             VoiceCommand cmd = JsonUtility.FromJson<VoiceCommand>(jsonMessage);
             if (cmd != null && cmd.type == "command" && playerController != null)
             {
-                Debug.Log($"Receive: {cmd.data}");
-                playerController.ExecuteVoiceCommand(cmd.data);
+                if (isPushToTalkActive)
+                {
+                    Debug.Log($"Receive: {cmd.data}");
+                    playerController.ExecuteVoiceCommand(cmd.data);
+                }
+                else
+                {
+                    Debug.Log($"Ignored (V not held): {cmd.data}");
+                }
             }
         }
         catch (System.Exception e)

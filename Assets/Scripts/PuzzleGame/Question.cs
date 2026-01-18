@@ -38,13 +38,12 @@ public class Question
     {
         return GetDifficultyLevel() switch
         {
-            DifficultyLevel.Easy => 15f,
-            DifficultyLevel.Normal => 15f,
-            DifficultyLevel.Hard => 15f,
+            DifficultyLevel.Easy => 60f,
+            DifficultyLevel.Normal => 45f,
+            DifficultyLevel.Hard => 30f,
             _ => 60f
         };
     }
-
     public int GetScoreValue()
     {
         return GetDifficultyLevel() switch

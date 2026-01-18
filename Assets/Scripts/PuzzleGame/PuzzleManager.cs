@@ -19,9 +19,11 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private bool endlessMode = false;
 
     [Header("Endless Mode Time Bonus")]
-    [SerializeField] private float easyTimeBonus = 10f;
-    [SerializeField] private float normalTimeBonus = 7f;
-    [SerializeField] private float hardTimeBonus = 5f;
+
+    // Add score bonus per difficulty
+    [SerializeField] private float easyTimeBonus = 15f;
+    [SerializeField] private float normalTimeBonus = 10f;
+    [SerializeField] private float hardTimeBonus = 7f;
 
     private float timeLimit;
     private float timeRemaining;
@@ -123,13 +125,13 @@ public class PuzzleManager : MonoBehaviour
                     else
                     {
                         Debug.LogError("Cannot start new puzzle: current question is null.");
-                        questionOverlayController?.ShowCompletion(); 
+                        questionOverlayController?.ShowCompletion();
                     }
                 }
                 else
                 {
                     Debug.LogError("QuestionBankManager.Instance is not found!");
-                    questionOverlayController?.ShowCompletion(); 
+                    questionOverlayController?.ShowCompletion();
                 }
             }
             else
@@ -252,8 +254,7 @@ public class PuzzleManager : MonoBehaviour
     private void SaveScore()
     {
         Debug.Log($"Final score to save: {currentScore}");
-        // TODO: Implement actual score saving to database
-        // This will be implemented later when we create the leaderboard system
+
     }
 
     public int GetCurrentScore()
@@ -266,7 +267,6 @@ public class PuzzleManager : MonoBehaviour
         currentScore = 0;
         Debug.Log("Score reset to 0");
 
-        // Update UI with reset score if UI controller exists
         if (QuestionOverlayController.Instance != null)
         {
             QuestionOverlayController.Instance.UpdateScoreUI(currentScore);
